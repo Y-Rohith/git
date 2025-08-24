@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features • NCO Sense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  
+    <header class="nav glassy">
+        <div class="nav-left">
+            <a class="brand" href="index.html" data-nav>
+                <span class="logo-dot"></span>
+                NCO<span class="thin">Sense</span>
+            </a>
+        </div>
+        <nav class="nav-right">
+            <a class="nav-link " href="index.html" data-nav>Home</a>
+<a class="nav-link " href="problem.html" data-nav>Problem</a>
+<a class="nav-link " href="solution.html" data-nav>Solution</a>
+<a class="nav-link active" href="features.html" data-nav>Features</a>
+<a class="nav-link " href="demo.html" data-nav>Demo</a>
+<a class="nav-link " href="admin.html" data-nav>Admin</a>
+<a class="nav-link " href="dashboard.html" data-nav>Dashboard</a>
+<a class="nav-link " href="api.html" data-nav>API</a>
+<a class="nav-link " href="about.html" data-nav>About</a>
+            <button id="themeToggle" class="btn small">🌙</button>
+        </nav>
+    </header>
+    
+  <main class="container">
+    
+    <section class="grid-3">
+      <div class="card glassy">
+        <h3 class="section-title">Data Ingestion</h3>
+        <ul class="muted">
+          <li>Convert datasets → JSON/CSV</li>
+          <li>Normalize Unicode/diacritics</li>
+          <li>Preserve 4‑ to 8‑digit hierarchy</li>
+        </ul>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Semantic Search</h3>
+        <ul class="muted">
+          <li>Embeddings via Sentence‑Transformers</li>
+          <li>Fast vector index (FAISS)</li>
+          <li>Confidence scoring + explainability</li>
+        </ul>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Synonyms & Context</h3>
+        <ul class="muted">
+          <li>Tailor ↔ Sewing Machine Operator</li>
+          <li>Domain‑specific lexicons</li>
+          <li>Context weighting</li>
+        </ul>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Query Interface</h3>
+        <ul class="muted">
+          <li>Text + voice input</li>
+          <li>Hindi & regional (placeholder)</li>
+          <li>Fallback suggestions</li>
+        </ul>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Dashboards</h3>
+        <ul class="muted">
+          <li>Usage stats</li>
+          <li>Latency & quality metrics</li>
+          <li>Audit trails</li>
+        </ul>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">API & Integration</h3>
+        <ul class="muted">
+          <li>REST endpoints</li>
+          <li>API keys & quotas</li>
+          <li>Embeddable widget</li>
+        </ul>
+      </div>
+    </section>
+    
+  </main>
+  
+    <footer class="footer glassy">
+        <div class="footer-grid">
+            <div>
+                <div class="brand">NCO<span class="thin">Sense</span></div>
+                <p class="muted">Semantic occupation search prototype for MoSPI Hackathon 2025.</p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <ul class="footlist">
+                    <li><a href="https://mospi.gov.in/" target="_blank" rel="noreferrer">MoSPI</a></li>
+                    <li><a href="https://datainnovation.mospi.gov.in/" target="_blank" rel="noreferrer">Data Innovation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footlist">
+                    <li><a href="about.html" data-nav>About/Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">© 2025 NCO Sense • Liquid Glass UI</div>
+    </footer>
+    <div id="pageTransition" class="transition-overlay"></div>
+    <canvas id="bg-webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+    <script src="assets/js/three-setup.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+</body>
+</html>

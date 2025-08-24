@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo • NCO Sense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  
+    <header class="nav glassy">
+        <div class="nav-left">
+            <a class="brand" href="index.html" data-nav>
+                <span class="logo-dot"></span>
+                NCO<span class="thin">Sense</span>
+            </a>
+        </div>
+        <nav class="nav-right">
+            <a class="nav-link " href="index.html" data-nav>Home</a>
+<a class="nav-link " href="problem.html" data-nav>Problem</a>
+<a class="nav-link " href="solution.html" data-nav>Solution</a>
+<a class="nav-link " href="features.html" data-nav>Features</a>
+<a class="nav-link active" href="demo.html" data-nav>Demo</a>
+<a class="nav-link " href="admin.html" data-nav>Admin</a>
+<a class="nav-link " href="dashboard.html" data-nav>Dashboard</a>
+<a class="nav-link " href="api.html" data-nav>API</a>
+<a class="nav-link " href="about.html" data-nav>About</a>
+            <button id="themeToggle" class="btn small">🌙</button>
+        </nav>
+    </header>
+    
+  <main class="container">
+    
+    <section class="card glassy">
+      <h2 class="section-title">Semantic Search Demo (Mock)</h2>
+      <p class="muted">Type a job title/description (try “sewing machine operator”, “teacher”, “bike repair”, “call center”).</p>
+      <div class="search-wrap">
+        <div class="search-row">
+          <input id="searchInput" placeholder="Describe the job role..." />
+          <button id="micBtn" class="btn small" title="Voice input (if supported)">🎤</button>
+          <button id="searchBtn" class="btn primary">Search</button>
+        </div>
+        <div id="langRow" style="display:flex; gap:10px;">
+          <span class="tag">English</span><span class="tag">हिन्दी (placeholder)</span>
+        </div>
+        <div id="results"></div>
+      </div>
+    </section>
+
+    <script>
+      async function loadData() {
+        const res = await fetch('data/nco-sample.json'); return res.json();
+      }
+      function similarity(a, b) {
+        a = a.toLowerCase(); b = b.toLowerCase();
+        let score = 0;
+        const aw = a.split(/\W+/).filter(Boolean);
+        const bw = b.split(/\W+/).filter(Boolean);
+        const setB = new Set(bw);
+        for (const w of aw) if (setB.has(w)) score += 1;
+        return score / Math.max(1, aw.length);
+      }
+      function rank(query, rows) {
+        return rows.map(r => {
+          const text = [r.title, r.desc, ...(r.synonyms||[])].join(" ");
+          let s = similarity(query, text);
+          // boost if any synonym present
+          (r.synonyms||[]).forEach(syn => { s = Math.max(s, similarity(query, syn)); });
+          // format confidence like 0–100%
+          const conf = Math.round(Math.min(99, Math.max(3, s * 100)));
+          return { ...r, score: s, confidence: conf };
+        }).sort((a,b) => b.score - a.score).slice(0,5);
+      }
+      function render(list) {
+        const box = document.getElementById('results');
+        box.innerHTML = list.map(r => `
+          <div class="result">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <div class="section-title" style="margin:0;">${r.title}</div>
+                <div class="muted">Code: <b>${r.code}</b></div>
+              </div>
+              <div class="score">${r.confidence}%</div>
+            </div>
+            <p class="muted" style="margin-top:6px;">${r.desc}</p>
+            <div>${(r.synonyms||[]).map(s=>`<span class="tag">${s}</span>`).join(" ")}</div>
+          </div>
+        `).join("");
+      }
+      (async function(){
+        const rows = await loadData();
+        const run = async () => {
+          const q = document.getElementById('searchInput').value.trim();
+          if (!q) { document.getElementById('results').innerHTML = '<p class="muted">Enter a query to see results.</p>'; return; }
+          const ranked = rank(q, rows);
+          render(ranked);
+        };
+        document.getElementById('searchBtn').addEventListener('click', run);
+        document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key==='Enter') run(); });
+      })();
+    </script>
+    
+  </main>
+  
+    <footer class="footer glassy">
+        <div class="footer-grid">
+            <div>
+                <div class="brand">NCO<span class="thin">Sense</span></div>
+                <p class="muted">Semantic occupation search prototype for MoSPI Hackathon 2025.</p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <ul class="footlist">
+                    <li><a href="https://mospi.gov.in/" target="_blank" rel="noreferrer">MoSPI</a></li>
+                    <li><a href="https://datainnovation.mospi.gov.in/" target="_blank" rel="noreferrer">Data Innovation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footlist">
+                    <li><a href="about.html" data-nav>About/Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">© 2025 NCO Sense • Liquid Glass UI</div>
+    </footer>
+    <div id="pageTransition" class="transition-overlay"></div>
+    <canvas id="bg-webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+    <script src="assets/js/three-setup.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home • NCO Sense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  
+    <header class="nav glassy">
+        <div class="nav-left">
+            <a class="brand" href="index.html" data-nav>
+                <span class="logo-dot"></span>
+                NCO<span class="thin">Sense</span>
+            </a>
+        </div>
+        <nav class="nav-right">
+            <a class="nav-link active" href="index.html" data-nav>Home</a>
+<a class="nav-link " href="problem.html" data-nav>Problem</a>
+<a class="nav-link " href="solution.html" data-nav>Solution</a>
+<a class="nav-link " href="features.html" data-nav>Features</a>
+<a class="nav-link " href="demo.html" data-nav>Demo</a>
+<a class="nav-link " href="admin.html" data-nav>Admin</a>
+<a class="nav-link " href="dashboard.html" data-nav>Dashboard</a>
+<a class="nav-link " href="api.html" data-nav>API</a>
+<a class="nav-link " href="about.html" data-nav>About</a>
+            <button id="themeToggle" class="btn small">🌙</button>
+        </nav>
+    </header>
+    
+  <main class="container">
+    
+    <section class="hero">
+      <div class="hero-card glassy">
+        <h1>Semantic NCO-2015&nbsp;Search<br/>for Smarter Data Collection</h1>
+        <p>Futuristic, glass-morphism UI that helps enumerators and officers quickly map free‑text job descriptions to precise NCO‑2015 occupation codes. Multilingual input, voice capture, relevance ranking, confidence scores, and admin workflows.</p>
+        <div class="badges">
+          <span class="badge">Liquid Glass</span>
+          <span class="badge">Neon Accents</span>
+          <span class="badge">Three.js</span>
+          <span class="badge">GSAP</span>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <a class="btn primary" href="demo.html" data-nav>Try Demo</a>
+          <a class="btn" href="problem.html" data-nav>See Problem</a>
+        </div>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Why it Matters</h3>
+        <p class="muted">Incorrect classification wastes time and degrades data quality. With semantic matching and smart UI, we reduce errors, speed up coding, and strengthen national statistics.</p>
+        <div class="grid-3" style="margin-top:10px;">
+          <div class="kpi"><div class="num">52</div><div class="cap">Sectors</div></div>
+          <div class="kpi"><div class="num">3,600</div><div class="cap">Occupations</div></div>
+          <div class="kpi"><div class="num">8-digit</div><div class="cap">Hierarchy Codes</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:24px;" class="grid-3">
+      <div class="card glassy">
+        <h3 class="section-title">Semantic Search</h3>
+        <p>Sentence embeddings + vector index (FAISS-ready). Ranked results with confidence and hierarchy context.</p>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Multilingual + Voice</h3>
+        <p>Type in English/Hindi (placeholder) and use mic to dictate queries where supported.</p>
+      </div>
+      <div class="card glassy">
+        <h3 class="section-title">Admin & Audits</h3>
+        <p>Console to upload revised NCO datasets, map synonyms, and maintain audit trails for overrides.</p>
+      </div>
+    </section>
+    
+  </main>
+  
+    <footer class="footer glassy">
+        <div class="footer-grid">
+            <div>
+                <div class="brand">NCO<span class="thin">Sense</span></div>
+                <p class="muted">Semantic occupation search prototype for MoSPI Hackathon 2025.</p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <ul class="footlist">
+                    <li><a href="https://mospi.gov.in/" target="_blank" rel="noreferrer">MoSPI</a></li>
+                    <li><a href="https://datainnovation.mospi.gov.in/" target="_blank" rel="noreferrer">Data Innovation</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul class="footlist">
+                    <li><a href="about.html" data-nav>About/Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">© 2025 NCO Sense • Liquid Glass UI</div>
+    </footer>
+    <div id="pageTransition" class="transition-overlay"></div>
+    <canvas id="bg-webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+    <script src="assets/js/three-setup.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+</body>
+</html>

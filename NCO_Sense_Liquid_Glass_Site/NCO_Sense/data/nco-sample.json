@@ -1,0 +1,50 @@
+[
+  {
+    "code": "81511010",
+    "title": "Sewing Machine Operator",
+    "synonyms": [
+      "tailor",
+      "stitching operator",
+      "seamster",
+      "seamstress"
+    ],
+    "desc": "Operates sewing machines to stitch garments or fabric products in manufacturing units."
+  },
+  {
+    "code": "23591000",
+    "title": "Primary School Teacher",
+    "synonyms": [
+      "teacher",
+      "class teacher",
+      "educator"
+    ],
+    "desc": "Teaches foundational subjects to young students and supports classroom activities."
+  },
+  {
+    "code": "71120100",
+    "title": "Mason",
+    "synonyms": [
+      "bricklayer",
+      "stone worker"
+    ],
+    "desc": "Builds and repairs structures using bricks, stones and concrete blocks."
+  },
+  {
+    "code": "72310100",
+    "title": "Motorcycle Mechanic",
+    "synonyms": [
+      "two-wheeler mechanic",
+      "bike repair"
+    ],
+    "desc": "Repairs and maintains motorcycles and scooters."
+  },
+  {
+    "code": "42260100",
+    "title": "Call Centre Agent",
+    "synonyms": [
+      "customer support",
+      "telecaller"
+    ],
+    "desc": "Handles inbound and outbound calls to assist customers."
+  }
+]
